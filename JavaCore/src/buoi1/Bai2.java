@@ -2,7 +2,7 @@ package buoi1;
 
 import java.util.Scanner;
 
-public class bai2 {
+public class Bai2 {
     public static void main(String[] args) {
 
         System.out.println("nhap vao so thu nhat : ");
