@@ -10,7 +10,8 @@ public class Bai1 {
         String name = new Scanner(System.in).nextLine();
 
         System.out.println("nhap vao ngay thang nam sinh cua hoc vien: ");
-        String age = new Scanner(System.in).nextLine();
+        int age = new Scanner(System.in).nextInt();
+
 
         System.out.println("nhap vao que quan cua hoc vien: ");
         String address = new Scanner(System.in).nextLine();

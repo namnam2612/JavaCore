@@ -18,7 +18,7 @@ public class HelloWorld {
     */
     public static void  main (String[] args) {
         //câu lệnh in ra text lên màn hình console
-        System.out.println("Hello World");
+        System.out.println("Hello World" + " 2" + "\n" + "3");
 
     }
 }

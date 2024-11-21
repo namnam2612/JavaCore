@@ -14,6 +14,6 @@ public class Bai2 {
         System.out.println("tong = " + (numberOne + numberTwo));
         System.out.println("tich =  " + (numberOne * numberTwo));
         System.out.println("thuong =  " + (numberOne / numberTwo));
-        System.out.println("so du cua thuong =  " + (numberOne % numberTwo));
+        System.out.println("so du cua thuong = " + (numberOne % numberTwo));
     }
 }
