@@ -3,14 +3,15 @@ package Buoi2.Baitap;
 import java.util.Scanner;
 
 public class Bai3 {
-    public static void giaiPhuongTrinhBacNhat(double b, double c) {
+    private void giaiPhuongTrinhBacNhat(double b, double c) {
         if (b == 0 && c == 0) {
-            System.out.println("phuong trinh bx + c = 0 co vo so nghiem ");
+            System.out.printf("phuong trinh %.0fx + %.0f = 0 co vo so nghiem ", b, c);
 
-        } else if (b == 0 && c != 0) {
-            System.out.println("phuong trinh vo nghiem");
+        } else if (b == 0) {
+            System.out.printf("phuong trinh %.0fx + %.0f = 0 vo nghiem ", b, c);
         } else {
-            System.out.println("phuong trinh bx + c = 0 co nghiem duy nhat la x = -c/b = " + (-c / b));
+            double n = -c / b;
+            System.out.printf("phuong trinh %.0fx + %.0f = 0 co nghiem duy nhat la x = %.0f", b, c, n);
         }
 
     }
@@ -19,28 +20,29 @@ public class Bai3 {
         Scanner scanner = new Scanner(System.in);
 
 
-        System.out.printf("nhap so a:\t");
+        System.out.println("nhap so a:\t");
         double a = scanner.nextDouble();
-        System.out.printf("nhap so b:\t");
+        System.out.println("nhap so b:\t");
         double b = scanner.nextDouble();
-        System.out.printf("nhap so c:\t");
+        System.out.println("nhap so c:\t");
         double c = scanner.nextDouble();
 
 
         if (a == 0) {
-            giaiPhuongTrinhBacNhat(b, c);
+            Bai3 giaiPhuongTrinhBacNhat = new Bai3();
+            giaiPhuongTrinhBacNhat.giaiPhuongTrinhBacNhat(b, c);
         } else {
             double delta = (Math.pow(b, 2) - (4 * a * c));
             if (delta < 0) {
-                System.out.println("phuong trinh vo nghiem");
+                System.out.printf("Phuong trinh %.0fx^2 %.0fx + %.0f = 0 vo nghiem ", a, b, c);
             } else if (delta == 0) {
-                System.out.println("phuong trinh co nghiem kep x = " + (-b / (2 * a)));
+                double x = (-b / (2 * a));
+                System.out.printf("phuong trinh %.0fx^2 %.0fx + %.0f = 0 co nghiem kep x = %.2f", a, b, c, x);
             } else {
-                System.out.println("phuong trinh co 2 nghiem phan biet: \n" + "x1 =\t" + (float) ((-b + (Math.sqrt(delta))) / 2 * a) + "\n" + "x2 =\t" + (float) ((-b - (Math.sqrt(delta))) / 2 * a));
+                double x1 = (-b + (Math.sqrt(delta))) / (2 * a);
+                double x2 = (-b - (Math.sqrt(delta))) / (2 * a);
+                System.out.printf("Phuong trinh %.0fx^2 %.0fx + %.0f = 0 co hai nghiem phan biet: x1 = %.2f \t x2 = %.2f", a, b, c, x1, x2);
             }
-
         }
-
-
     }
 }
