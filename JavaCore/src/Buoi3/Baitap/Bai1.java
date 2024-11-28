@@ -15,7 +15,6 @@ public class Bai1 {
 
         do {
             System.out.println("Moi ban nhap n:");
-
             n = scanner.nextInt();
 
         } while (n <= 0);
