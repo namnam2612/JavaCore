@@ -1,7 +1,5 @@
 package Buoi3.BTVN;
 
-import java.util.Scanner;
-
 /*
 Đề bài: Kiểm tra và phân loại số trong một dãy
 Mô tả bài toán: Viết chương trình thực hiện các yêu cầu sau trên một dãy số nguyên dương nhập vào từ người dùng:
@@ -71,9 +69,19 @@ public class Bai3 {
     public static void main(String[] args) {
         System.out.println("1 " + kiemTraSoHoanHao(6));
         System.out.println("2 " + kiemTraSoArmstrong(153));
-        System.out.println("3 " +laSoDoiXung(10));
+        System.out.println("3 " + laSoDoiXung(10));
+        System.out.println("4 " + tinhTongCacChuSo(10));
+    }
 
-
+    public static int tinhTongCacChuSo(int n) {
+        int chuSoCuoi = 0;
+        int tong = 0;
+        while (n != 0) {
+            chuSoCuoi = n % 10;
+            tong += chuSoCuoi;
+            n = n / 10;
+        }
+        return tong;
     }
 
     public static boolean laSoDoiXung(int n) {
@@ -84,11 +92,10 @@ public class Bai3 {
             soTam = soN % 10;
             soDoiXung = soDoiXung * 10 + soTam;
         }
-        if(soDoiXung == soN) {
+        if (soDoiXung == soN) {
             return true;
         }
         return false;
-
     }
 
     public static boolean kiemTraSoHoanHao(int n) {
@@ -102,7 +109,6 @@ public class Bai3 {
             return true;
         }
         return false;
-
     }
 
     public static boolean kiemTraSoArmstrong(int n) {
