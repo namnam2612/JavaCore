@@ -1,5 +1,7 @@
 package Buoi6.BaiTap;
 
+import java.util.Scanner;
+
 /**
  * Bài tập 1: Áp dụng tính kế thừa Đề bài: Xây dựng chương trình quản lý động vật trong sở thú:
  * 1. Tạo lớp cha Animal với các thuộc tính và phương thức:
@@ -22,36 +24,36 @@ package Buoi6.BaiTap;
  * 5. Tạo một danh sách chứa các đối tượng Lion, Elephant, và Monkey, sau đó duyệt qua danh sách và gọi phương thức makeSound() cho từng đối tượng.
  */
 public abstract class Animal {
-    public String getName() {
+    private String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
     /**
      * abstract đánh dấu là class hoặc method trìu tượng
-      - class abstract:
-      + có các thuộc tính, khối lệnh như class thông thường
-      + có các method trìu tượng: là các method chỉ có phần khai báo tên hàm, kiểu dữ liệu trả về
-        , tham số và không có phần thân hàm
-        - phần thân thàm sẽ được class subclass triển khai lại theo cách riêng, phù hợp với đặc tính
-     + luôn là class cha(supper class) để cho các class con kế thừa
-     + không thể sử dụng constructor để khởi tạo đối tượng, bắt buộc phải sử dụng constructor của subclass để khởi tạo
-     đối tượng
+     * - class abstract:
+     * + có các thuộc tính, khối lệnh như class thông thường
+     * + có các method trìu tượng: là các method chỉ có phần khai báo tên hàm, kiểu dữ liệu trả về
+     * , tham số và không có phần thân hàm
+     * - phần thân thàm sẽ được class subclass triển khai lại theo cách riêng, phù hợp với đặc tính
+     * + luôn là class cha(supper class) để cho các class con kế thừa
+     * + không thể sử dụng constructor để khởi tạo đối tượng, bắt buộc phải sử dụng constructor của subclass để khởi tạo
+     * đối tượng
      */
-    public String name;
+    private String name;
 
-    public int getAge() {
+    private int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    private void setAge(int age) {
         this.age = age;
     }
 
-    public int age;
+    private int age;
 
     public String getname() {
         return getname();
@@ -69,5 +71,16 @@ public abstract class Animal {
 
     public abstract void action();
 
-    public abstract void showInfo();
+    public void showInfo() {
+        System.out.println("name: " + this.name);
+        System.out.println("age: " + this.age);
+    }
+
+    public void enterInfor() {
+        System.out.println("name: ");
+        this.name = new Scanner(System.in).nextLine();
+        System.out.println("age: ");
+        this.age = new Scanner(System.in).nextInt();
+
+    }
 }

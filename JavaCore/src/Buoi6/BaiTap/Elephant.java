@@ -25,6 +25,14 @@ public class Elephant extends Animal {
 
     @Override
     public void showInfo() {
-        System.out.println("con voi 3 tuoi");
+        System.out.println("info voi la:");
+        super.showInfo();
+    }
+
+    @Override
+    public void enterInfor() {
+        System.out.println("enter con voi: ");
+        // goi toi ham nhap thong tin cua cha
+        super.enterInfor();
     }
 }

@@ -28,5 +28,10 @@ public class Lion extends Animal {
         System.out.println("con su tu 2 tuoi");
     }
 
-
+    @Override
+    public void enterInfor() {
+        System.out.println("enter con lion: ");
+        // goi toi ham nhap thong tin cua cha
+        super.enterInfor();
+    }
 }

@@ -13,9 +13,10 @@ public class Bai4 {
         Animal khi = new Monkey();
         animals[2] = khi;
 
+
         for (Animal animal : animals) {
             animal.showInfo();
         }
-        }
     }
+}
 
