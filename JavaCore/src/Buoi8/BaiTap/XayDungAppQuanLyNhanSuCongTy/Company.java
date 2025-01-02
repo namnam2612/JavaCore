@@ -6,7 +6,7 @@ public class Company {
     private String tenCongTy;
     private int maSoThue;
     private double doanhThuThang;
-    private List<Employee> danhSachNhanVien = new ArrayList<>();
+    private final List<Employee> danhSachNhanVien = new ArrayList<>();
 
     public void nhapThongTinCongTy() {
         System.out.println("nhap ten cong ty");

@@ -7,7 +7,7 @@ public abstract class Employee {
     private String hoTen;
     private String sdt;
     private int soNgayLamViec;
-    private Double luongMotNgay; //Double chứa được giá trị kiểu null
+    private Double luongMotNgay;//Double chứa được giá trị kiểu null
 
     // kiểu dữ liệu đối tượng
     //khởi tạo đối tượng trong heap như 1 đối tượng bình thường

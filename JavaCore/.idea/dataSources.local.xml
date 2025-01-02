@@ -24,7 +24,11 @@
         <introspection-scope>
           <node kind="schema">
             <name qname="@" />
+            <name qname="hethongquanly" />
+            <name qname="quanlynhansu" />
             <name qname="quanlysinhvienvakhoahoc" />
+            <name qname="quanlynhansu2" />
+            <name qname="atino" />
           </node>
         </introspection-scope>
       </schema-mapping>

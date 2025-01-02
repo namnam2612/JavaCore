@@ -98,7 +98,6 @@ public class StudentManager extends Student {
         System.out.println("Nhap ten sinh vien can tim: ");
         String name = sc.nextLine();
         boolean found = true;
-
         for (int i = 0; i < size; i++) {
             if (students[i].getName().equalsIgnoreCase(name)) {
                 System.out.println(students[i]);
