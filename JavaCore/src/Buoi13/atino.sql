@@ -34,6 +34,11 @@ INSERT INTO product(name, price, discount_price, image_url, category_id, descrip
 ('Áo Sơ Mi Regular L.3.4470', 239000, NULL, 'https://link_to_image4.jpg', 2, 'Áo sơ mi regular thoải mái.'),
 ('Áo Sơ Mi Slim L.4.4476', 269000, NULL, 'https://link_to_image5.jpg', 2, 'Áo sơ mi slim fit thiết kế mới.');
 
+INSERT INTO product(name, price, discount_price, image_url, category_id, description) VALUES
+('Quần Âu Slim Crop 31.4.QA079', 299000, null, 'https://link_to_image1.jpg', 3, 'Quần dài'),
+('Quần KaKi Loose L.4.QKK001', 139000, NULL, 'https://link_to_image2.jpg', 3, 'Quần dài'),
+('Quần KaKi Baggy 30.2.QKK003', 319000, NULL, 'https://link_to_image3.jpg', 3, 'Quần dài');
+
 
 SELECT * FROM categories;
 
