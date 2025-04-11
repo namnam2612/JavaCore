@@ -110,3 +110,13 @@ FROM diem_thi dt
          JOIN mon_hoc mh ON dt.id_mon = mh.id
 WHERE dt.diem < 5.0
 GROUP BY mh.ten_mon;
+
+use QL_SINHVIEN;
+select * from sinh_vien;
+
+-- sub query
+/*
+    cau query nho se duoc long trong cau query to, gia tri cua sub query se
+    duoc root query su dung lam bang tam hoac mot gia tri de so sanh
+*/
+

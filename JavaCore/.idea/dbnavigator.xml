@@ -13,6 +13,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="107f7f42-13bb-4a2e-969b-9b80e6349587">
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
       <console name="Connection 1" type="STANDARD" schema="quanlyhocsinh" session="Main"><![CDATA[-- câu lệnh tạo cơ sở dữ liệu, tạo cơ sở dữ liệu quanlyhocsinh
 create database quanlyhocsinh;
 -- câu lệnh xóa database, câu lệnh nguy hiểm
@@ -94,12 +95,14 @@ select * from class;]]></console>
     <filter-actions connection-id="107f7f42-13bb-4a2e-969b-9b80e6349587" dataset="mysql.component" active-filter-id="" />
     <filter-actions connection-id="107f7f42-13bb-4a2e-969b-9b80e6349587" dataset="mysql.db" active-filter-id="" />
     <filter-actions connection-id="107f7f42-13bb-4a2e-969b-9b80e6349587" dataset="quanlysinhvienvakhoahoc.course" active-filter-id="" />
+    <filter-actions connection-id="107f7f42-13bb-4a2e-969b-9b80e6349587" dataset="ql_sinhvien.diem_thi" active-filter-id="" />
     <filter-actions connection-id="107f7f42-13bb-4a2e-969b-9b80e6349587" dataset="quanlyhocsinh.class" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/src/Buoi13/demoFinal.sql" connection-id="107f7f42-13bb-4a2e-969b-9b80e6349587" session-id="MAIN" current-schema="ql_sinhvien" />
     <mapping file-url="file://$PROJECT_DIR$/src/Buoi11" connection-id="107f7f42-13bb-4a2e-969b-9b80e6349587" session-id="MAIN" current-schema="mysql" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
