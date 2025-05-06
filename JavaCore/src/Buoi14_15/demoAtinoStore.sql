@@ -169,7 +169,7 @@ create table branch_category (
     foreign key (category_id) references category(id)
 );
 
-create table production (
+create table productionModel (
     id int auto_increment primary key,
     name varchar(100),
     price decimal(10,2),
@@ -202,7 +202,7 @@ create table product_detail (
     id int auto_increment primary key,
     product_id int,
     quantity int,
-    foreign key (product_id) references production(id)
+    foreign key (product_id) references productionModel(id)
 );
 
 create table production_detail_size (
@@ -262,7 +262,7 @@ VALUES
     (2, 4),
     (2, 5);
 
-INSERT INTO production (name, price, description, total_quantity, category_id)
+INSERT INTO productionModel (name, price, description, total_quantity, category_id)
 VALUES
     ('Áo thun basic', 199000, 'Áo thun chất liệu cotton co giãn', 150, 4),
     ('Quần jean rách gối', 350000, 'Form slimfit, co giãn tốt', 100, 5);
