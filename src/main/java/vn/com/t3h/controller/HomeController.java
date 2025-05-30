@@ -1,62 +1,72 @@
 package vn.com.t3h.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import vn.com.t3h.entity.ProductionEntity;
+import vn.com.t3h.model.ProductionModel;
+import vn.com.t3h.service.ProductionService;
+
+import java.util.List;
 
 /*
--danh dau cho spring biet day la tang controller va can duoc tao bean trong spring container
--tra ve giao dien html qua thu vien jsp
+@Controller:
+    - đánh dấu cho spring biet đây là tầng controller và cần được tạo bean trong spring container
+    - Trả về giao diện HTML qua thư viện JSP
 
-- bean trong spring: tat ca cac object thay vi dev phai chu dong tao dong tuong bang tu khoa new
-khi su dung cac annotation @component, @service, @controller, @repository
--> spring se tu dong su dung co che IDC de tao ra cac bean va su dung co che DI tiem cac bean vao
-trong cac class
+    - Bean trong spring: tất cả các object thay vì dev phải chủ động tạo đối tượng bằng từ khóa new
+    thì khi sử dụng các annotaion @Component, @Service, @Controller, @Repository
+    -> spring sẽ tự động sử dụng cơ chết IOC để tạo ra các bean và sử dụng cơ chế DI tiêm các bean vào
+    trong các class cha
 
-@component, @service, @controller, @repository:
-    tat ca cac annoation nay ve ban chat khong khac nhau vi deu dung de danh dau giup tao ra bean
-    - khi co ten khac nhau se giup phan tach cac tang xu ly logic rieng trong project
-    - @Controller -> package controller:
-        chi su dung o tang controller, noi tiep nhan cac request, param, va tra ve cac response cho client
-    - @Service -> package service:
-        chi dinh do la tang xu ly nghiep vu logic cua chuc nang
-        tang nay se tiep nhan cac param va request tu controller va goi toi tang repository de thao tac voi du lieu
-    - @Repository -> package dao, spring boot -> package repository:
-        danh dau dau la tang chuyen thao tac voi du lieu, giao tiep voi cac co so du lieu
-        tao ra cac cau query va query vao database de tra ra du lieu cho tang service
+    - @Component, @Service, @Controller, @Repository :
+        tất cả các annoation này về bản chất không khác nhau vì đều cùng để đánh đáu giúp tạo ra bean
+        - khi có tên khác nhau sẽ giúp phân tách các tầng xử lý logic riêng trong project
+        - @Controler -> pakcage controller:
+            + chỉ sử dụng ở tầng controller, nơi tiếp nhận cc request, param, và trả về các response cho client
+        - @Service -> package service:
+            + chỉ định đó là tầng xử lý nghiệp vụ logic của chức năng,
+            + tầng này sẽ tiếp nhận các param, và requst từ controller và gọi tới tầng repository để thao tác với dữ liệu
+       - @Repository -> package dao, spring boot -> package repository:
+            + đánh dấu đây là tầng chuyên thao tác với dữ liệu, giao tiếp với các cơ sở dữ liệu
+            + tạo ra các câu query và query vào trong database để trả ra dữ liệu cho tầng service
 
+      - cấu trúc project
+        + package controller:
+            chứa các file class controller có các method tiếp nhận requst, trả về response
+            package này sẽ sử dụng các class tại package service
+        + package service:
+            chứa các file class xử lý logic của chức năng
+            tiếp nhận cc request và gọi tới các class package dao để giao tiếp với database
+        + package dao | repository
+            chứa các file interface hoạc class chuyên sử dụng để giao tiếp với database
+            package này được tầng service gọi tơi
+        + model | dto (data transfer object)
+            chứa tất cả cac class model | dto được sử dụng để lưu trữ dữ liệu phục vụ quá trình
+            xử lý v truyền tải tại tất cả các tầng controller, service, repository trong project
+            vd: dữ liệu được trả ra trong database sẽ được class trong package này tiếp nhận và tạo
+            ra các đối tượng để các tầng service, controller xử lý
 
-    * Cau truc project:
-    + package controller:
-        chua cac file class controller co cac method tiep nhan request, tra ve response
-        package nay se su dung cac class tai package service
-
-    + package service:
-        chua cac file class xu ly logic cua chuc nang
-        tiep nhan cac request va goi toi cac class package dao de giao tiep voi database
-
-    + package dao | repository
-        chua cac file interface hoac class chuyen su dung de giao tiep voi database
-        package nay duoc tang service goi toi
-
-    + model | dta (data transfer object)
-        chua tat ca cac class model | dta duoc su dung de luu tru du lieu phuc vu qua trinh
-        xu ly va truyen tai tai tat ca cac tang controller, service, repository trong object
-
-        vd: du lieu duoc tra ra trong database se duoc class trong package nay tiep nhan va tao
-        ra cac doi tuong de cac tang service, controller xu ly
-* */
+ */
 @Controller
 public class HomeController {
-    /*
-    @GetMapping: method get cua http
-    @PostMapping: method post cua http
-    @PutMapping: method Put http
-    @DeleteMapping: method delete http
 
-    /home: -> method nay se duoc xu ly request voi url localhost:8080/home
-    */
+    /*
+    @GetMapping => method Get HTTP
+    @PostMapping => method POST HTTP
+    @PutMapping => method PUT HTTP
+     @DeletedMapping => method Delete HTTP
+
+     /home: -> method này sẽ được xử dụng để xử lý request với url localhost:8080/home
+     */
+    @Autowired
+    private ProductionService productionService;
     @GetMapping("/home")
-    public String home() {
+    public String home(Model model) {
+        List<ProductionEntity> productionModels = productionService.getProductions();
+        model.addAttribute("models", productionModels);
         return "home";
     }
+
 }

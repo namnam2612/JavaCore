@@ -4,7 +4,7 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!-- Cấu hình component-scan để Spring tìm kiếm các controller -->
-    <context:component-scan base-package="vn.com.t3h.controller" />
+    <context:component-scan base-package="vn.com.t3h" />
 
     <!-- Cấu hình view resolver để hiển thị JSP
     - chi dinh cho spring biet cac folder jsp dang duoc nam o folder vat ly nao
