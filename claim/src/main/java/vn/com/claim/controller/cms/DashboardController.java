@@ -9,7 +9,10 @@ public class DashboardController {
     @GetMapping("/cms/dashboard")
     public String claim() {
         return "cms/dashboard";
+    }
 
-
+    @GetMapping("/quan-ly-boi-thuong")
+    public String redirectToDashboard() {
+        return "redirect:http://localhost:8081/cms/claim-manager";
     }
 }
