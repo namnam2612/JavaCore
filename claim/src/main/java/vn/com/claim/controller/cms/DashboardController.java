@@ -9,5 +9,7 @@ public class DashboardController {
     @GetMapping("/cms/dashboard")
     public String claim() {
         return "cms/dashboard";
+
+
     }
 }
