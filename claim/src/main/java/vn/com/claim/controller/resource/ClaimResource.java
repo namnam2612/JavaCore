@@ -3,11 +3,9 @@ package vn.com.claim.controller.resource;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import vn.com.claim.dto.ClaimDTO;
+import vn.com.claim.dto.request.ClaimRequest;
 import vn.com.claim.dto.response.ResponsePage;
 import vn.com.claim.service.ClaimService;
 
@@ -21,7 +19,7 @@ public class ClaimResource {
 
     private final ClaimService claimService;
     /*
-    http://localhost:8080/api/claim?page=0&size=6&claimCode=&fromDate=&toDate=&codeStatus=
+    http://localhost:8081/api/claim?page=0&size=6&claimCode=&fromDate=&toDate=&codeStatus=
      */
     @GetMapping
     public ResponseEntity<ResponsePage<List<ClaimDTO>>> getListClaim(
@@ -40,6 +38,12 @@ public class ClaimResource {
     ) {
         ResponsePage<List<ClaimDTO>> responsePage = claimService.getClaims(claimCode, fromDate, toDate, codeStatus, pageable);
         return ResponseEntity.ok(responsePage);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createdClaim(@RequestBody ClaimRequest claimRequest){
+
+        return null;
     }
 
 }

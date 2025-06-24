@@ -7,11 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 import vn.com.claim.dto.ClaimDTO;
+import vn.com.claim.dto.request.ClaimRequest;
+import vn.com.claim.dto.response.Response;
 import vn.com.claim.dto.response.ResponsePage;
 import vn.com.claim.entity.ClaimEntity;
 import vn.com.claim.mapper.ClaimMapper;
 import vn.com.claim.repository.ClaimRepository;
 import vn.com.claim.service.ClaimService;
+import vn.com.claim.utils.Constants;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,7 +29,23 @@ public class ClaimServiceImpl implements ClaimService {
     private final ClaimMapper claimMapper;
 
     @Override
-    public ResponsePage<List<ClaimDTO>> getClaims(String claimCode, LocalDate fromDateClaim, LocalDate toDateClaim, String codeStatus, Pageable pageable) {
+    public Response<String> createClaim(ClaimRequest claimRequest) {
+
+        ClaimEntity claimEntity = new ClaimEntity();
+        claimEntity.setAmount(claimRequest.getAmount());
+        claimEntity.setClaimDate(claimRequest.getClaimDate());
+        Long totalClaim = claimRepository.count();
+        claimEntity.setCode(Constants.createCodeClaim(totalClaim));
+        claimEntity.setDescription(claimRequest.getDescription());
+
+
+        return null;
+    }
+
+    @Override
+    public ResponsePage<List<ClaimDTO>> getClaims(String claimCode, LocalDate fromDateClaim,
+                                                  LocalDate toDateClaim,
+                                                  String codeStatus, Pageable pageable) {
 
         if (StringUtils.isEmpty(claimCode)) {
             claimCode = null;
@@ -36,7 +55,8 @@ public class ClaimServiceImpl implements ClaimService {
             codeStatus = null;
         }
 
-        Page<ClaimEntity> claimEntityPage = claimRepository.findByCondition(claimCode, fromDateClaim, toDateClaim, codeStatus, pageable);
+        Page<ClaimEntity> claimEntityPage = claimRepository.findByCondition(claimCode, fromDateClaim,
+                toDateClaim, codeStatus, pageable);
         // convert entity -> dto
         List<ClaimDTO> claimDTOS = claimMapper.toDtos(claimEntityPage.getContent());
         //set data to response

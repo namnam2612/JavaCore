@@ -25,4 +25,7 @@ public interface ClaimRepository extends JpaRepository<ClaimEntity,Long> {
                                       LocalDate toDateClaim,
                                       String codeStatus,
                                       Pageable pageable);
+
+    @Query(value = "select count(e.id) from ClaimEntity e")
+    Long countAll();
 }

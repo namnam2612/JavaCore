@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import vn.com.claim.entity.UserEntity;
 
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable; // ✅ dùng đúng package của Spring Data
 import java.time.LocalDate;
 
 @Repository
